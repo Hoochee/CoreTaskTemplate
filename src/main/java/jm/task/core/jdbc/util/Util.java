@@ -13,8 +13,9 @@ public class Util {
         Properties prop = new Properties();
         try {
             prop.load(new FileInputStream("JDBCSettings.properties"));
+            Class.forName(prop.getProperty("driver"));
             connection = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("username"), prop.getProperty("password"));
-        } catch (IOException | SQLException e) {
+        } catch (IOException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
