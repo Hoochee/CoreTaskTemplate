@@ -15,10 +15,10 @@ public class UserDaoJDBCImpl implements UserDao {
 
     public void createUsersTable() {
         final String createTable = "CREATE TABLE IF NOT EXISTS Users("
-                + "id BIGINT PRIMARY KEY AUTO_INCREMENT,"
-                + "name VARCHAR(15),"
-                + "lastName VARCHAR(15),"
-                + "age TINYINT)";
+                + "id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,"
+                + "name VARCHAR(15) NOT NULL ,"
+                + "lastName VARCHAR(15) NOT NULL,"
+                + "age TINYINT NOT NULL)";
         final String autoIncrement = "ALTER TABLE users AUTO_INCREMENT=10001";
         try {
             Util.getStatement().executeUpdate(createTable);
