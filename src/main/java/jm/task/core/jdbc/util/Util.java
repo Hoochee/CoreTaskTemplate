@@ -24,16 +24,6 @@ public class Util {
         return connection;
     }
 
-    public static Statement getStatement() {
-        Statement statement = null;
-        try {
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return statement;
-    }
-
     public static void closeConnection() {
         try {
             connection.close();
